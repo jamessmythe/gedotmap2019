@@ -10,26 +10,19 @@ regions <- c("East", "East Midlands", "London", "North East", "North West",
              "Yorkshire and The Humber")
 
 regs <- read.csv("dataprep/regions.csv") %>% 
-  rename(pcon17cd = PCONCODE) %>% 
+  rename(pcon18cd = PCONCODE) %>% 
   select(-X)
 
 ge2019 <- read.csv("dataprep/ge2019.csv", stringsAsFactors = F) %>% 
-  rename(pcon17cd = PCONCODE) 
+  rename(pcon18cd = PCONCODE) 
 
-uk2 <- readOGR(dsn = "dataprep/shapefiles/2019_coords.shp")
+uk <- readOGR(dsn = "dataprep/shapefiles/2019_coords.shp")
 
-uk2@data <- merge(uk2@data, ge2019, by = "pcon17cd") %>% 
-  merge(regs, by = "pcon17cd")
+uk@data <- merge(uk@data, ge2019, by = "pcon18cd") %>% 
+  merge(regs, by = "pcon18cd")
 
-uk2 <- uk2[uk2$REGN != "Northern Ireland",]%>%
+uk2 <- uk%>%
   spTransform(CRS("+proj=longlat +datum=WGS84"))
-
-num.dots <- select(uk2@data, Con:SNP) / 250
-dotsInPolys(uk2, as.integer(num.dots), f="random")
-
-sp.dfs <- lapply(names(num.dots), function(x) {
-  
-})
 
 ge.dots.2019 <- function() {
   
@@ -65,8 +58,9 @@ dots <- ge.dots.2019()
 colours <- read.csv("dataprep/colours.csv", stringsAsFactors = F)
 
 dots <- dots %>% 
-  select(-Hex) %>% 
   left_join(select(colours, Party, Hex))
+
+rm(uk, uk2, regs, parties, ge2019, regions)
 
 save.image("2019_data.RData")
 
