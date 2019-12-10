@@ -1,0 +1,10 @@
+Party,Hex,Palette,col1,col2,col3,col4,col5,col6
+Con,#377eb8,blues,#c6dbef,#9ecae1,#6baed6,#4292c6,#2171b5,#084594
+Lab,#e41a1c,reds,#fcbba1,#fc9272,#fb6a4a,#ef3b2c,#cb181d,#99000d
+LD,#ffff33,ylorbr,#fee391,#fec44f,#fe9929,#ec7014,#cc4c02,#8c2d04
+Brexit,#984ea3,purples,#dadaeb,#bcbddc,#9e9ac8,#807dba,#6a51a3,#4a1486
+Green,#4daf4a,greens,#c7e9c0,#a1d99b,#74c476,#41ab5d,#238b45,#005a32
+Ind,#a65628,greys,#d9d9d9,#bdbdbd,#969696,#737373,#525252,#252525
+PC,#f781bf,ylgn,#fee391,#fec44f,#fe9929,#ec7014,#cc4c02,#8c2d04
+Other,#999999,purd,#d9d9d9,#bdbdbd,#969696,#737373,#525252,#252525
+SNP,#ff7f00,oranges,#fee391,#fec44f,#fe9929,#ec7014,#cc4c02,#8c2d04
